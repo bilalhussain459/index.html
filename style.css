@@ -33,6 +33,12 @@ a {
 }
 
 /* haeder and nav css */
+
+#header {
+  position: relative;
+  z-index: 10;
+}
+
 #header .container_header {
   padding: 20px 50px;
   display: flex;
@@ -60,30 +66,32 @@ a {
   transition: all 0.3s ease;
 }
 
-#header .contact_btn-header .btn {
+.btn {
   padding: 10px 20px;
   font-size: 18px;
   font-weight: 400;
   background: linear-gradient(300deg, #3d2ebe, #00c4e2);
   color: #ffffff;
+  width: fit-content;
   border: 1px solid #ffffff;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   transition: ease-in-out 0.5s;
 }
 
-#header .contact_btn-header .btn::after {
+.btn::after {
   content: " →";
   font-size: 18px;
   font-weight: 400;
   transition: all 0.3s ease;
 }
 
-#header .contact_btn-header .btn:hover {
+.btn:hover {
   background: linear-gradient(90deg, #3d2ebe, #00c4e2);
   font-size: 16px;
   font-weight: 400;
   transition: all 0.3s ease;
+  border-radius: 20px;
 }
 
 .sub_menu-parent:hover .dropdown-content {
@@ -119,11 +127,34 @@ a {
 
 /* hero sec */
 
+#hero_section {
+  position: relative;
+  overflow: hidden;
+  background: #f0f4f8;
+}
+
+#hero_section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(61, 55, 116, 0.4),
+    rgba(112, 232, 250, 0.3),
+    transparent 60%
+  );
+  filter: blur(40px);
+  transition: background 0.1s ease-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
 #hero_section .container_home {
-  padding: 100px 50px;
+  position: relative;
+  z-index: 2;
+  padding: 120px 50px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
   width: 100%;
   gap: 20px;
 }
@@ -132,10 +163,33 @@ a {
   flex-basis: calc(50% - 10px);
 }
 
+#hero_section .container_home .hero-colounm .hero-text {
+  width: 100%;
+  max-width: 80%;
+  padding-top: 80px;
+}
+
+#hero_section .container_home .hero-colounm h1 {
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 52px;
+  color: #222;
+}
+#hero_section .container_home .hero-colounm p {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  color: #555;
+  margin: 20px 0;
+}
+
 #hero_section .container_home .hero-colounm .hero_image_banner {
   width: 100%;
   max-width: 100%;
   height: auto;
   filter: drop-shadow(2px 4px 6px black);
 }
+
 /* hero sec */
